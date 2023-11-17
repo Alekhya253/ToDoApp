@@ -11,6 +11,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .models import Task
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.models import User
+from django.shortcuts import redirect
+
+from .models import Task
+
+def task_detail(request, task_id):
+    task = get_object_or_404(Task, pk=task_id)
+    return render(request, 'templates/ToDoApp/task.html', {'task': task})
 
 class CustomLoginView(LoginView):
     template_name = 'toDoApp/login.html'
@@ -62,20 +71,22 @@ class TaskDetail(LoginRequiredMixin,DetailView):
 
 class TaskCreate(LoginRequiredMixin,CreateView):
     model = Task
-    fields = ['title', 'description', 'finish_by','is_finished', 'priority', 'category','collaborators','attachments' ] 
+    fields = ['title', 'description', 'finish_by','is_finished', 'priority', 'category','collaborators'] 
     success_url = reverse_lazy('tasks')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(TaskCreate, self).form_valid(form)
+    
 
 
 class TaskUpdate(LoginRequiredMixin,UpdateView):
     model = Task
-    fields = ['title', 'description', 'finish_by','is_finished', 'priority', 'category','collaborators','attachments' ] 
+    fields = ['title', 'description', 'finish_by','is_finished', 'priority', 'category','collaborators'] 
     success_url = reverse_lazy('tasks')
 
 class TaskDelete(LoginRequiredMixin,DeleteView):
     model = Task
     context_object_name = 'task'
     success_url = reverse_lazy('tasks')
+

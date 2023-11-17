@@ -1,0 +1,23 @@
+{% extends 'ToDoApp/main.html' %}
+{% block content %}
+<div class="header-bar">
+<h1>{{ task.title }}</h1>
+<a href="{% url 'tasks' %}">Go Back</a>
+</div>
+<div class="form-body">
+<p><b>Description : </b> {{ task.description }}</p>
+
+<p><b>Created at:</b> {{ task.created_at }}</p>
+<p><b>Finish by:</b> {{ task.finish_by }}</p>
+<p><b>Is finished:</b> {{ task.is_finished }}</p>
+<p><b>Priority:</b> {{ task.get_priority_display }}</p>
+
+<p><b>Collaborators:</b>
+    {% for collaborator in task.collaborators.all %}
+        {{ collaborator.username }}{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+</p>
+
+<p><b>Category:</b> {{ task.category.name }}</p>
+</div>
+{% endblock content %}
