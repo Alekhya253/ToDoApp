@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
-ALLOWED_HOSTS = ['to-do-qichm2ddf-alekhyas-projects-8d475a3e.vercel.app', 'to-do-70g458kt3-alekhyas-projects-8d475a3e.vercel.app','.vercel.app']
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-qo)!)8(fe4o5$@ww%03f8q&p1&p2k!f7shbt4yrtql60#5kq9a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
+ALLOWED_HOSTS = ['to-do-qichm2ddf-alekhyas-projects-8d475a3e.vercel.app',
+                  'to-do-70g458kt3-alekhyas-projects-8d475a3e.vercel.app',
+                  '.vercel.app', 'localhost',  '127.0.0.1']
 
 
 # Application definition
