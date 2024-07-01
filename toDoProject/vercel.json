@@ -1,12 +1,11 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "toDoProject/wsgi.py",
-        "use": "@vercel/python"
-      }
-    ],
+
     "routes": [
+      {
+        "src": "/static/(.*)",
+        "dest": "/toDoProject/static/$1"
+      },
       {
         "src": "/(.*)",
         "dest": "toDoProject/wsgi.py"
