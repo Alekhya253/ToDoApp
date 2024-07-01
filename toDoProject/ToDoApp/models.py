@@ -2,12 +2,16 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
+
 
 class Task(models.Model):
     PRIORITY_CHOICES = [
