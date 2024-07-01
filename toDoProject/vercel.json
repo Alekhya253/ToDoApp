@@ -1,10 +1,10 @@
 {
     "version": 2,
-
+ 
     "routes": [
       {
         "src": "/static/(.*)",
-        "dest": "/toDoProject/static/$1"
+        "dest": "/static/$1"
       },
       {
         "src": "/(.*)",
