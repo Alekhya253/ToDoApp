@@ -26,9 +26,7 @@ SECRET_KEY = 'django-insecure-qo)!)8(fe4o5$@ww%03f8q&p1&p2k!f7shbt4yrtql60#5kq9a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['to-do-qichm2ddf-alekhyas-projects-8d475a3e.vercel.app',
-                  'to-do-70g458kt3-alekhyas-projects-8d475a3e.vercel.app',
-                  '.vercel.app', 'localhost',  '127.0.0.1']
+ALLOWED_HOSTS = [ 'localhost',  '127.0.0.1']
 
 
 # Application definition
@@ -52,8 +50,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
+'allauth.account.middleware.AccountMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -133,7 +130,7 @@ USE_TZ = True
 LOGIN_URL = 'login'
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
